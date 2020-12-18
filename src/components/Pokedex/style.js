@@ -25,7 +25,7 @@ export const Button = styled.div `
   position: relative;
   width:100px;
   height: 100px;
-  
+  background-image:url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${props=> `${props.id}`}.png");
 `; 
 
 // tela==================================================

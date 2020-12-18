@@ -12,7 +12,7 @@ const Pokedex = ({ pokemon, pokeId, setPokeId }) => {
 
         <Pball src={ball} />
       </Screen>
-      
+      <Button id={pokeId}/>
       <button onClick={() => setPokeId(pokeId + 1)}>+</button>
       <button onClick={() => pokeId > 1 && setPokeId(pokeId - 1)}>-</button>
     </Container>
