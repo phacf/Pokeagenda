@@ -1,8 +1,8 @@
-import agenda from "./images/pokedex1.png";
 import { useDispatch, useSelector } from "react-redux";
 import { getPokemonThunk } from "./store/modules/pokemon/thunk";
 import { useEffect, useState } from "react";
-//
+
+import Pokedex from "./components/Pokedex";
 
 function App() {
   const pokemon = useSelector((state) => state.pokemon);
@@ -18,12 +18,7 @@ function App() {
 
   return (
     <div>
-      <img src={agenda} />
-      <img
-        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
-      />
-      <button onClick={()=>setPokeId(pokeId + 1)}>+</button>
-      <button onClick={()=> pokeId > 1 && setPokeId(pokeId - 1)}>-</button>
+      <Pokedex pokemon={pokemon} pokeId={pokeId} setPokeId={setPokeId} />
     </div>
   );
 }
