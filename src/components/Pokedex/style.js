@@ -23,6 +23,9 @@ export const Button = styled.div `
   padding: 0;
   box-sizing: border-box;
   position: relative;
+  width:100px;
+  height: 100px;
+  
 `; 
 
 // tela==================================================
