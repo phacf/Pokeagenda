@@ -8,8 +8,10 @@ function App() {
   const pokemon = useSelector((state) => state.pokemon);
   const dispatch = useDispatch();
   const [pokeId, setPokeId] = useState(1);
+  const [searchName, setName] = useState();
+
   const fetchData = () => {
-    dispatch(getPokemonThunk(pokeId));
+    dispatch(getPokemonThunk(pokeId, setPokeId));
   };
 
   useEffect(() => {
@@ -18,7 +20,7 @@ function App() {
 
   return (
     <div>
-      <Pokedex pokemon={pokemon} pokeId={pokeId} setPokeId={setPokeId} />
+      <Pokedex pokemon={pokemon} pokeId={pokeId} setPokeId={setPokeId} fetch={fetchData} />
     </div>
   );
 }
