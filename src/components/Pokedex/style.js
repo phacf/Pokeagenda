@@ -8,6 +8,7 @@ export const Container = styled.div`
   position: relative;
   height: 335px;
   width: fit-content;
+  left:30%;
 `;
 
 export const Pdex = styled.img`
