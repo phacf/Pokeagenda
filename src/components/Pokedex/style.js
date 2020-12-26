@@ -6,8 +6,6 @@ export const Container = styled.div`
   box-sizing: border-box;
   z-index: 1;
   position: relative;
-  left: 30%;
-  top: 0px;
   height: 335px;
   width: fit-content;
 `;
@@ -67,7 +65,7 @@ export const PokePhoto = styled.img`
   z-index: 2;
   top: 100px;
   left: 0px;
-
+  
   position: relative;
 `;
 

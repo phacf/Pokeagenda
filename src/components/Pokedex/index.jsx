@@ -27,7 +27,8 @@ import {
 const Pokedex = ({ pokemon, pokeId, setPokeId, setFav }) => {
   const [search, setSearch] = useState();
   const dispatch = useDispatch();
-  const favorites = useSelector((state) => state.favorites);
+  const favs = useSelector((state) => state.favorites);
+
   const handleType = (type) => {
     const types = {
       fire: `#F08030`,
@@ -104,7 +105,7 @@ const Pokedex = ({ pokemon, pokeId, setPokeId, setFav }) => {
       <Pdex src={agenda} />
       <Screen>
         <PokePhoto
-          src={`https://raw.githubusercontent.com/PokeAPPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeId}.png`}
         />
 
         <Pball src={ball} />
@@ -144,7 +145,11 @@ const Pokedex = ({ pokemon, pokeId, setPokeId, setFav }) => {
       />
       <SearchBotton onClick={() => handleSearch()} />
 
-      <FavBotton onClick={() => dispatch(handleFavoritesThunk(pokeId))} />
+      <FavBotton
+        onClick={() => {
+          dispatch(handleFavoritesThunk(pokeId));
+        }}
+      />
 
       {dispatch(searchFavoritesThunk(pokeId)) && <ShowFav src={fav} />}
     </Container>

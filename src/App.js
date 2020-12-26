@@ -8,7 +8,6 @@ function App() {
   const pokemon = useSelector((state) => state.pokemon);
   const dispatch = useDispatch();
   const [pokeId, setPokeId] = useState(1);
-  const [fav, setFav] = useState();
 
   const fetchData = () => {
     dispatch(getPokemonThunk(pokeId, setPokeId));
@@ -20,7 +19,12 @@ function App() {
 
   return (
     <div>
-      <Pokedex pokemon={pokemon} pokeId={pokeId} setPokeId={setPokeId} fetch={fetchData} setFav={setFav}/>
+      <Pokedex
+        pokemon={pokemon}
+        pokeId={pokeId}
+        setPokeId={setPokeId}
+        fetch={fetchData}
+      />
     </div>
   );
 }
