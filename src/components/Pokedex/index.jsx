@@ -1,6 +1,12 @@
 import agenda from "../../images/pokedex1.png";
 import ball from "../../images/ball.jpg";
+import fav from "../../images/ball.png";
 import { useState } from "react";
+import {
+  handleFavoritesThunk,
+  searchFavoritesThunk,
+} from "../../store/modules/Favorites/thunk";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Container,
   PokePhoto,
@@ -15,30 +21,33 @@ import {
   SearchName,
   SearchId,
   SearchBotton,
+  ShowFav,
+  FavBotton,
 } from "./style";
-const Pokedex = ({ pokemon, pokeId, setPokeId, fetch }) => {
+const Pokedex = ({ pokemon, pokeId, setPokeId, setFav }) => {
   const [search, setSearch] = useState();
-
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.favorites);
   const handleType = (type) => {
     const types = {
       fire: `#F08030`,
-      grass: "78C850",
-      water: "6890F0",
-      bug: "A8B820",
-      normal: "A8A878",
-      poison: "A040A0",
-      electric: "F8D030",
-      ground: "E0C068",
-      fairy: "EE99AC",
-      fighting: "C03028",
-      psychic: "F85888",
-      rock: "B8A038",
-      ghost: "705898",
-      ice: "98D8D8",
-      dragon: "7038F8",
-      flying: "90AAD7",
-      dark: "79726B",
-      steel: "9FA9AF",
+      grass: `#78C850`,
+      water: "#6890F0",
+      bug: "#A8B820",
+      normal: "#A8A878",
+      poison: `#A040A0`,
+      electric: "#F8D030",
+      ground: "#E0C068",
+      fairy: "#EE99AC",
+      fighting: "#C03028",
+      psychic: "#F85888",
+      rock: "#B8A038",
+      ghost: "#705898",
+      ice: "#98D8D8",
+      dragon: "#7038F8",
+      flying: "#90AAD7",
+      dark: "#79726B",
+      steel: "#9FA9AF",
     };
     switch (type) {
       case "fire":
@@ -95,12 +104,12 @@ const Pokedex = ({ pokemon, pokeId, setPokeId, fetch }) => {
       <Pdex src={agenda} />
       <Screen>
         <PokePhoto
-          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
+          src={`https://raw.githubusercontent.com/PokeAPPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
         />
 
         <Pball src={ball} />
       </Screen>
-      {console.log(pokemon)}
+
       <ButtonUp onClick={() => setPokeId(pokeId + 1)} />
       <ButtonDown onClick={() => pokeId > 1 && setPokeId(pokeId - 1)} />
       <ShowType>
@@ -133,7 +142,11 @@ const Pokedex = ({ pokemon, pokeId, setPokeId, fetch }) => {
         placeholder={"Search Id"}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <SearchBotton onClick={()=> handleSearch()}/>
+      <SearchBotton onClick={() => handleSearch()} />
+
+      <FavBotton onClick={() => dispatch(handleFavoritesThunk(pokeId))} />
+
+      {dispatch(searchFavoritesThunk(pokeId)) && <ShowFav src={fav} />}
     </Container>
   );
 };

@@ -1,11 +1,16 @@
-*{
+* {
   margin: 0;
-  padding: 0; 
+  padding: 0;
 }
 body {
   margin: 0;
-  padding: 0; 
-  
+  padding: 0;
+
+  background-image: url("https://www.teahub.io/photos/full/214-2146085_all-pokemon-wallpaper-4k.jpg");
+  background-clip: border-box;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;

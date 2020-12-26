@@ -6,8 +6,9 @@ export const Container = styled.div`
   box-sizing: border-box;
   z-index: 1;
   position: relative;
-  border: 1px solid black;
-  height: fit-content;
+  left: 30%;
+  top: 0px;
+  height: 335px;
   width: fit-content;
 `;
 
@@ -113,11 +114,11 @@ export const ShowType = styled.div`
 `;
 export const Type = styled.div`
   font-size: 10px;
-  color: wheat;
+  color: white;
   border: 1px solid black;
   border-radius: 3px;
   text-align: center;
-  background-color: "${(props) => props.type}";
+  background-color: ${(props) => props.type};
 `;
 export const ShowProfile = styled.div`
   font-size: 12px;
@@ -151,18 +152,39 @@ export const SearchId = styled.input`
   bottom: 348px;
 `;
 export const SearchBotton = styled.div`
-
-  width: 25px;
+  width: 35px;
   height: 25px;
-  
-  border-radius: 100%;
+
+  border-radius: 3px;
   position: relative;
   z-index: 7;
-  bottom: 409px;
-  left: 13px;
+  bottom: 411px;
+  left: 290px;
   cursor: pointer;
-  :active{
-    background-color:black;
+  :active {
+    background-color: black;
     opacity: 20%;
   }
+`;
+export const FavBotton = styled.div`
+  width: 25px;
+  height: 25px;
+
+  border-radius: 100%;
+  position: relative;
+  z-index: 8;
+  bottom: 435px;
+  left: 13px;
+  cursor: pointer;
+  :active {
+    background-color: black;
+    opacity: 20%;
+  }
+`;
+export const ShowFav = styled.img`
+  position: relative;
+  z-index: 9;
+  width: 15px;
+  bottom: 590px;
+  left: 50px;
 `;
