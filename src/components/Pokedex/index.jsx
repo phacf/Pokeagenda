@@ -97,7 +97,7 @@ const Pokedex = ({ pokemon, pokeId, setPokeId, setFav }) => {
     }
   };
   const handleSearch = () => {
-    setPokeId(search);
+    search && setPokeId(search);
   };
 
   return (

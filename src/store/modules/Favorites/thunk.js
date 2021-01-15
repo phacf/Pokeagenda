@@ -3,7 +3,7 @@ import { handleFavorites } from "./actions";
 export const handleFavoritesThunk = (id) => (dispatch) => {
   if (localStorage.length > 0) {
     const list = JSON.parse(localStorage.getItem("PokemonFav"));
-    if (!list.includes(id)) {
+    if (list) if (!list.includes(id)) {
       list.push(id);
       localStorage.setItem("PokemonFav", JSON.stringify(list));
       dispatch(handleFavorites(list));
@@ -23,7 +23,7 @@ export const handleFavoritesThunk = (id) => (dispatch) => {
 export const searchFavoritesThunk = (id) => (dispatch) => {
   if (localStorage.length > 0) {
     const list = JSON.parse(localStorage.getItem("PokemonFav"));
-
+    if(list)
     return list.includes(id);
   }
 };
